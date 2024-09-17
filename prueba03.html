@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Crea una función que convierta un número romano en un entero.
+    function convNumRom(numRom) {
+      let resultado = 0;
+      let equivalencias = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+      };
+      // Separamos la cifra romana en elementos individuales
+      numRom = numRom.split('');
+      // Recorremos el array de símbolos romanos
+      for (let i = 0; i < numRom.length; i++) {
+        let valorActual = equivalencias[numRom[i]];
+        let valorSiguiente = equivalencias[numRom[i + 1]] || 0; // Obtenemos el siguiente valor (o 0 si no existe)
+        // Si el valor actual es menor que el siguiente, se resta
+        if (valorActual < valorSiguiente) {
+          resultado -= valorActual;
+        } else {
+          resultado += valorActual;
+        }
+      }
+      return resultado;
+    }
+    // Pruebas de ejemplo
+    console.log(convNumRom('MDCCXII')); // 1712
+    console.log(convNumRom('MCMXCIV')); // 1994
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function traductorRoma(numRoma){
+            //separamos el string en array
+            numRoma = numRoma.split('')
+            console.log(numRoma)
+
+            const valoresRomanos = {
+                I:1,
+                V:5,
+                X:10,
+                L:50,
+                C:100,
+                D:500,
+                M:1000
+            }
+            let total=0
+        for(let i=0;i<numRoma.length;i++){
+            numRoma[i]=valoresRomanos[numRoma[i]]
+            total+=numRoma[i] 
+
+        }
+         return total;
+        }
+       
+        console.log(traductorRoma('MCMXCIV'))//devuelve 1994
+        console.log(traductorRoma('M'))//devuelve 1000
+        console.log(traductorRoma('MII'))//devuelve 1002
+    </script>
+</body>
+</html> -->
